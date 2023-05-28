@@ -69,28 +69,51 @@ h1 {
     text-align: center;
 }
 
-#questionbox {
+#questionbox, #gamefield {
     position: absolute;
     background-color: black;
     top: 0;
     overflow: hidden;
     flex-direction: column-reverse;
 }
+#gamefield {
+    overflow: visible;
+}
 
-#close-q {
+#questionbox {
+    z-index: 1000;
+}
+
+#close-q , #yes , #no{
     display: none;
     margin-top: 20px;
 }
 
-.active-qbox #close-q{
+.active-qbox #close-q  {
     display: flex;
 }
 
-.active-qbox {
+.active-qbox , .active-game{
     height: 100%;
     width: 100%;
 }
+ .active-game #yes, .active-game #no {
+    display: flex;
+ }
 
-.active-q {
+
+.active-q , .active-game {
     color: white;
+}
+
+.yn {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.unanswered {
+    color: white;
+    position: absolute;
+    z-index: -45;
 }
