@@ -127,9 +127,9 @@ nbtn.addEventListener("click", () => {
     }
     if (qCounter === questions.length - 1) {
         clearInterval(timer);
-            yesnobox.innerHTML = "Dein leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
-            playSample("assets/FinalQuestion.mp3");
-            deleteQuestion();
+        yesnobox.innerHTML = "Dein leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
+        playSample("assets/FinalQuestion.mp3");
+        deleteQuestion();
     }
 });
 
