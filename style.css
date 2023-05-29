@@ -117,3 +117,7 @@ h1 {
     position: absolute;
     z-index: -45;
 }
+
+.end :is(#yes,#no) {
+    display: none;
+}

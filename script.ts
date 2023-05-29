@@ -46,10 +46,12 @@ let yesnobox: HTMLDivElement = document.createElement("div");
 yesnobox.classList.add("active-game");
 
 function startGame(): void {
+    window.alert("Für ein besseres Erlebnis empfehle ich Dir die Nutzung von Kopfhörern.");
     console.log("spiel wird gestartet");
     gameBox.classList.add('active-game');
     console.log("ja wurde geklickt");
     yesnobox.innerHTML = questions[qCounter].q;
+    playSample(questions[qCounter].sound);
     gameBox.appendChild(yesnobox);
     // timer = setInterval(() => {
     //     spreadQuestion();
@@ -68,21 +70,26 @@ const questions: {q: string, sound:string}[] = [
     {"q": "Wirst du auf die Party gehen?", "sound": "assets/Party.mp3"},
     {"q": "Möchtest du mit einem neuen Hobby anfangen?", "sound": "assets/Hobby.mp3"},
     {"q":"Würdest du dich für deinen Traumjob bewerben?", "sound": "assets/Traumjob.mp3"},
+    {"q": "Würdest du in eine andere Stadt ziehen und von null auf neustarten?", "sound": "assets/Neustart.mp3"},
     {"q": "Hast du genug Geld?", "sound": "assets/Geld.mp3"},
+    {"q": "Glaubst du an die Liebe?", "sound": "assets/Liebe.mp3"},
     {"q": "Willst du Heiraten?", "sound": "assets/Heiraten.mp3"},
     {"q":"Willst du Kinder haben?", "sound": "assets/Kinder.mp3"},
-    {"q": "Bist du glücklich?", "sound": "assets/Glücklich.mp3"},
+    {"q": "Bist du mitfühlend?", "sound": "assets/Mitgefühl.mp3"},
+    {"q": "Bist du glücklich?", "sound": "assets/Glücklick.mp3"},
+    {"q": "Vertraust du dir selbst?", "sound": "assets/Vertrauen.mp3"},
     {"q": "Führst du ein erfolgreiches leben?", "sound": "assets/Erfolgreich.mp3"},
+    {"q": "Setzt du dich selbst zu sehr unter Erfolgsdruck? ", "sound": "assets/Erfolgsdruck.mp3"},
+    {"q":"Hast du ein gutes Verhältnis zu deiner Familie?", "sound": "assets/Familie.mp3"},
     {"q":"Bereust du etwas in deinem leben?", "sound": "assets/Reue.mp3"},
     {"q": "Hast du den Sinn des Lebens gefunden?", "sound": "assets/Sinn.mp3"},
-    {"q": "Was ist die Antwort auf das Leben, das Universum und alles?", "sound": "assets/Button_Click.wav"},
     {"q":"Wer hat die Relativitätstheorie entwickelt?", "sound": "assets/Button_Click.wav"}
 ];
 
 const ybtn: HTMLElement = document.getElementById("yes");
 const nbtn: HTMLElement = document.getElementById("no");
 let timer: number;
-let timerDuration:number = 1000;
+let timerDuration:number = 5000;
 
 
 ybtn.addEventListener("click", () => {
@@ -90,6 +97,7 @@ ybtn.addEventListener("click", () => {
         deleteQuestion();
         qCounter++;
         yesnobox.innerHTML = questions[qCounter].q;
+        playSample(questions[qCounter].sound);
         clearInterval(timer);
         if (qCounter > 1){
             timer = setInterval(() => {
@@ -103,7 +111,8 @@ ybtn.addEventListener("click", () => {
     }
     if (qCounter === questions.length - 1) {
         clearInterval(timer);
-        yesnobox.innerHTML = "Dein leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
+        gameBox.classList.add('end');
+        yesnobox.innerHTML = "Das Erwachsenen leben ist oft geprägt von vielen Entscheidungen die man auf einmal treffen muss. Es ist alles gut, wir alle haben ähnliche Probleme. Du musst nicht alles sofort herausfinden, aber die unangenehmsten Entscheidungen führen zu großen Veränderungen, die dich mehr voranbringen als du denkst. Dein leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
         playSample("assets/FinalQuestion.mp3");
         deleteQuestion();
     }
@@ -114,6 +123,7 @@ nbtn.addEventListener("click", () => {
         deleteQuestion();
         qCounter++;
         yesnobox.innerHTML = questions[qCounter].q;
+        playSample(questions[qCounter].sound);
         clearInterval(timer);
         if (qCounter > 1) {
         timer = setInterval(() => {
@@ -126,8 +136,9 @@ nbtn.addEventListener("click", () => {
         },timerDuration);}
     }
     if (qCounter === questions.length - 1) {
+        gameBox.classList.add('end');
         clearInterval(timer);
-        yesnobox.innerHTML = "Dein leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
+        yesnobox.innerHTML = "Das Erwachsenen leben ist oft geprägt von vielen Entscheidungen, die man auf einmal treffen muss. Es ist alles gut, wir alle haben ähnliche Probleme. Du musst nicht alles sofort herausfinden, aber die unangenehmsten Entscheidungen führen zu großen Veränderungen, die dich mehr voranbringen, als du denkst. Dein Leben liegt in deiner Hand. Wie wirst DU dich entscheiden?";
         playSample("assets/FinalQuestion.mp3");
         deleteQuestion();
     }
