@@ -89,7 +89,7 @@ const questions: {q: string, sound:string}[] = [
 const ybtn: HTMLElement = document.getElementById("yes");
 const nbtn: HTMLElement = document.getElementById("no");
 let timer: number;
-let timerDuration:number = 5000;
+let timerDuration:number = 3500;
 
 
 ybtn.addEventListener("click", () => {
