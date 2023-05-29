@@ -76,7 +76,7 @@ var questions = [
 var ybtn = document.getElementById("yes");
 var nbtn = document.getElementById("no");
 var timer;
-var timerDuration = 5000;
+var timerDuration = 3500;
 ybtn.addEventListener("click", function () {
     if (qCounter < questions.length - 1) {
         deleteQuestion();
