@@ -43,7 +43,7 @@ function startGame(): void {
 
 let increaseInterval = function() {
         qCounter++;
-        timerDuration *= .8
+        timerDuration *= .88;
         let uaQuestions = document.getElementsByClassName('unanswered');
         if(qCounter < questions.length) {
             if(qCounter < questions.length-1) {
