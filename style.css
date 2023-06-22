@@ -1,5 +1,6 @@
 html {
     background-color:black;
+    transition: background-color 300ms ease;
 }
 
 html * {

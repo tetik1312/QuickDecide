@@ -43,7 +43,7 @@ function startGame(): void {
 
 let increaseInterval = function() {
         qCounter++;
-        timerDuration *= .88;
+        timerDuration = ((timerDuration*.93));
         let uaQuestions = document.getElementsByClassName('unanswered');
         if(qCounter < questions.length) {
             if(qCounter < questions.length-1) {
@@ -53,10 +53,10 @@ let increaseInterval = function() {
             }
             gameTimeout = setTimeout(increaseInterval, timerDuration);
             for(let i =0; i < uaQuestions.length;i++) {
-                uaQuestions[i].style.transform = `scale(${1+Math.pow(qCounter*.25,2)})`;
+                uaQuestions[i].style.transform = `scale(${1+Math.pow(qCounter*.2,1.3)})`;
             }
         } else if (qCounter < questions.length) {
-            uaQuestions[uaQuestions.length].style.transform = `scale(${1+Math.pow(qCounter*.25,2)})`;
+            uaQuestions[uaQuestions.length].style.transform = `scale(${1+Math.pow(qCounter*.2,1.3)})`;
             yesnobox.innerHTML = questions[qCounter].q;
             spreadQuestion();
         } else if (qCounter === questions.length) {
@@ -71,7 +71,7 @@ let increaseInterval = function() {
             document.body.appendChild(unanswered);
             let uaQuestions = document.getElementsByClassName('unanswered');
             for(let i =0; i < uaQuestions.length;i++) {
-                uaQuestions[i].style.transform = `scale(${1+Math.pow(qCounter*.25,2)})`;
+                uaQuestions[i].style.transform = `scale(${1+Math.pow(qCounter*.2,1.3)})`;
             }
             yesnobox.innerHTML = '';
             gameBox.style.display = 'none';
@@ -83,6 +83,33 @@ let increaseInterval = function() {
 }
 
 const questions: {q: string, sound:string}[] = [
+    {"q":"Wirst du auf die Party gehen?", "sound": "assets/Party.mp3"},
+    {"q":"Möchtest du mit einem neuen Hobby anfangen?", "sound": "assets/Hobby.mp3"},
+    {"q":"Würdest du dich für deinen Traumjob bewerben?", "sound": "assets/Traumjob.mp3"},
+    {"q":"Würdest du in eine andere Stadt ziehen und von Null auf Neustarten?", "sound": "assets/Neustart.mp3"},
+    {"q":"Hast du genug Geld?", "sound": "assets/Geld.mp3"},
+    {"q":"Glaubst du an die Liebe?", "sound": "assets/Liebe.mp3"},
+    {"q":"Willst du Heiraten?", "sound": "assets/Heiraten.mp3"},
+    {"q":"Willst du Kinder haben?", "sound": "assets/Kinder.mp3"},
+    {"q":"Bist du mitfühlend?", "sound": "assets/Mitgefühl.mp3"},
+    {"q":"Bist du glücklich?", "sound": "assets/Glücklick.mp3"},
+    {"q":"Vertraust du dir selbst?", "sound": "assets/Vertrauen.mp3"},
+    {"q":"Bist du nachtragend?", "sound": "assets/Nachtragend.mp3"},
+    {"q":"Neigst du dazu neidisch zu sein?", "sound": "assets/Neid.mp3"},
+    {"q":"Kannst du gut mit Konfrontationen umgehen?", "sound": "assets/Konfrontation.mp3"},
+    {"q":"Führst du ein erfolgreiches Leben?", "sound": "assets/Erfolgreich.mp3"},
+    {"q":"Setzt du dich selbst zu sehr unter Erfolgsdruck? ", "sound": "assets/Erfolgsdruck.mp3"},
+    {"q":"Hast du ein gutes Verhältnis zu deiner Familie?", "sound": "assets/Familie.mp3"},
+    {"q":"Bereust du etwas in deinem Leben?", "sound": "assets/Reue.mp3"},
+    {"q":"Willst du etwas vergessen, das du getan hast?", "sound": "assets/Vergessen.mp3"},
+    {"q":"Bist du zufrieden mit deinem Aussehen?", "sound": "assets/Aussehen.mp3"},
+    {"q":"Liebst du dich selbst?", "sound": "assets/Selbstliebe.mp3"},
+    {"q":"Gibt es einen Charakterzug an dir, den du gerne ablegen würdest?", "sound": "assets/Charakter.mp3"},
+    {"q":"Gibt es eine Person, der du nie verzeihen konntest?", "sound": "assets/Verzeihen.mp3"},
+    {"q":"Hast du Verlustängste?", "sound": "assets/Verlustangst.mp3"},
+    {"q":"Hast du eine Angst, der du nicht gegenübertreten kannst?", "sound": "assets/AngstTreten.mp3"},
+    {"q":"Hast du den Sinn des Lebens gefunden?", "sound": "assets/Sinn.mp3"},
+    {"q":"Wünschst du dir ein anderes Leben?", "sound": "assets/AnderesLeben.mp3"},
     {"q":"Wirst du auf die Party gehen?", "sound": "assets/Party.mp3"},
     {"q":"Möchtest du mit einem neuen Hobby anfangen?", "sound": "assets/Hobby.mp3"},
     {"q":"Würdest du dich für deinen Traumjob bewerben?", "sound": "assets/Traumjob.mp3"},
